@@ -147,6 +147,7 @@
     "utils-merge": "^1.0.1",
     "vary": "^1.1.2",
     "vite": "^5.4.2",
+    "@vitejs/plugin-react": "^4.3.1",
     "wrappy": "^1.0.2",
     "yallist": "^3.1.1"
   },
@@ -157,11 +158,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/cli": "^7.25.6",
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
-    "@vitejs/plugin-react": "^4.3.1"
-  }
+  "license": "ISC"
 }
