@@ -14,8 +14,8 @@ export default defineConfig({
     },
   },
   esbuild: {
-    loader: 'jsx', // Procesar JSX en los archivos .jsx
-    include: /src\/.*\.jsx?$/, // Asegura que procese archivos en src
-    exclude: [],
+    loader: 'jsx', // Configurar el loader para JSX
+    include: /src\/.*\.[tj]sx?$/, // Procesar archivos .js, .jsx, .ts, .tsx
+    exclude: /node_modules/, // Excluir node_modules
   },
 });
