@@ -13,4 +13,14 @@ export default defineConfig({
       input: './index.html',
     },
   },
+  resolve: {
+    alias: {
+      '@': '/src', // Opcional: facilita la importación desde la carpeta src
+    },
+  },
+  esbuild: {
+    loader: 'jsx', // Asegura que esbuild procese JSX correctamente
+    include: /src\/.*\.jsx?$/, // Procesa archivos .js y .jsx
+    exclude: [],
+  },
 });
