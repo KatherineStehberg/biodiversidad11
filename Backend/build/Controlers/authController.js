@@ -18,6 +18,7 @@ function _login() {
         case 0:
           _req$body = req.body, username = _req$body.username, password = _req$body.password;
           _context.prev = 1;
+          // Verificar si el usuario existe en la base de datos
           query = 'SELECT * FROM users WHERE username = $1';
           _context.next = 5;
           return db.query(query, [username]);
@@ -32,7 +33,7 @@ function _login() {
             message: 'Usuario no encontrado'
           }));
         case 9:
-          user = rows[0];
+          user = rows[0]; // Verificar si la contraseña coincide
           _context.next = 12;
           return bcrypt.compare(password, user.password);
         case 12:
@@ -45,13 +46,19 @@ function _login() {
             message: 'Contraseña incorrecta'
           }));
         case 15:
+          // Generar token JWT
           token = jwt.sign({
             userId: user.id
-          }, process.env.JWT_SECRET, {
+          }, process.env.JWT_SECRET || 'default_secret',
+          // Asegurarse de que JWT_SECRET esté configurado
+          {
             expiresIn: '1h'
-          });
+          }); // Enviar token al frontend
           res.json({
-            token: token
+            message: 'Login exitoso',
+            token: token,
+            // Se envía el token
+            userId: user.id // Información adicional opcional
           });
           _context.next = 23;
           break;
