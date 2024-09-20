@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: process.env.PORT || 3000,
+    hmr: {
+      overlay: true, // Muestra errores de desarrollo en un overlay en la app
+    },
   },
   build: {
     outDir: 'dist',
