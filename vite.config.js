@@ -7,7 +7,7 @@ export default defineConfig({
     host: '0.0.0.0',
     port: process.env.PORT || 3000,
     hmr: {
-      overlay: true, // Muestra errores de desarrollo en un overlay en la app
+      overlay: true, // Muestra errores de desarrollo en el overlay en la app
     },
   },
   build: {
@@ -17,8 +17,9 @@ export default defineConfig({
     },
   },
   esbuild: {
-    jsxInject: `import React from 'react'`, // Añade automáticamente 'React' en archivos JSX
-    loader: 'jsx', // Configura el cargador para procesar JSX
-    include: /src\/.*\.jsx?$/, // Asegúrate de que procese archivos en src
+    jsxInject: `import React from 'react'`, // Asegúrate de importar React automáticamente en archivos JSX
+    loader: 'jsx', // Cargador para procesar JSX
+    include: /src\/.*\.jsx?$/, // Procesar archivos .js y .jsx en el directorio src
+    exclude: /node_modules/, // Excluir la carpeta node_modules
   },
 });
