@@ -11,7 +11,7 @@ var servicesRouter = require('./routes/services');
 var productsRouter = require('./routes/products');
 var authRouter = require('./routes/auth');
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
